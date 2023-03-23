@@ -1,0 +1,18 @@
+{
+    "name": "Knot.OpenAI.Editor",
+    "rootNamespace": "Knot.OpenAI.Editor",
+    "references": [
+        "GUID:02b61aabd07b60344aceddfd273fe10c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
