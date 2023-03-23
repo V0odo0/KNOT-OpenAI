@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using Knot.OpenAI;
 
 namespace Knot.OpenAI.Editor
 {
