@@ -8,11 +8,11 @@ namespace Knot.OpenAI
     {
         public virtual TResponse GetResponse()
         {
-            if (_webRequest == null)
+            if (WebRequest == null)
                 return default;
 
-            var response = JsonUtility.FromJson<TResponse>(_webRequest.downloadHandler.text);
-            response.WebRequest = _webRequest;
+            var response = JsonUtility.FromJson<TResponse>(WebRequest.downloadHandler.text);
+            response.WebRequest = WebRequest;
             return response;
         }
     }

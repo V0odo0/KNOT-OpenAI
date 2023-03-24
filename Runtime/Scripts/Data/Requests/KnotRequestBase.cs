@@ -6,26 +6,26 @@ namespace Knot.OpenAI
 {
     public abstract class KnotRequestBase : IDisposable
     {
-        protected UnityWebRequest _webRequest;
+        public UnityWebRequest WebRequest { get; protected set; }
 
         protected virtual UnityWebRequest BuildWebRequest(KnotEndpoint endPoint)
         {
-            _webRequest?.Dispose();
+            WebRequest?.Dispose();
 
-            _webRequest = UnityWebRequest.Put(endPoint.Uri, JsonUtility.ToJson(this));
-            _webRequest.method = "POST";
-            _webRequest.SetRequestHeader("Content-Type", "application/json");
-            _webRequest.SetRequestHeader("Authorization", $"Bearer {KnotOpenAI.ApiKey}");
+            WebRequest = UnityWebRequest.Put(endPoint.Uri, JsonUtility.ToJson(this));
+            WebRequest.timeout = endPoint.Timeout;
+            WebRequest.method = "POST";
+            WebRequest.SetRequestHeader("Content-Type", "application/json");
+            WebRequest.SetRequestHeader("Authorization", $"Bearer {KnotOpenAI.ApiKey}");
 
-            return _webRequest;
+            return WebRequest;
         }
-
 
         public abstract UnityWebRequest GetWebRequest();
 
         public virtual void Dispose()
         {
-            _webRequest?.Dispose();
+            WebRequest?.Dispose();
         }
     }
 }
